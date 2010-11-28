@@ -28,6 +28,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    annotate (2.4.0)
     arel (2.0.4)
     builder (2.1.2)
     diff-lcs (1.1.2)
@@ -76,7 +77,7 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
-    webrat (0.7.2)
+    webrat (0.7.1)
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
@@ -85,8 +86,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   mysql
   rails (= 3.0.3)
-  rspec
-  rspec-rails
-  webrat
+  rspec (= 2.1.0)
+  rspec-rails (= 2.1.0)
+  webrat (= 0.7.1)

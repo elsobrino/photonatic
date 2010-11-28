@@ -17,6 +17,8 @@ test:
   database: photonatic_test
   pool: 5
   timeout: 5000
+  username: root
+  password: 
 
 production:
   adapter: mysql

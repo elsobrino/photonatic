@@ -4,10 +4,11 @@ gem 'rails', '3.0.3'
 gem 'mysql'
 
 group :development do
-  gem 'rspec-rails'
+  gem 'annotate'
+  gem 'rspec-rails', '2.1.0'
 end
 
 group :test do
-  gem 'rspec' 
-  gem 'webrat'
+  gem 'rspec', '2.1.0'
+  gem 'webrat', '0.7.1'
 end
