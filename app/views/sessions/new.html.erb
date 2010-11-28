@@ -1,0 +1,16 @@
+<div id="login" class="round centered">
+  <h3 class="green">Login</h3><h5 class="blue">to your account</h5><br />
+  <%= form_for(:session, :url => sessions_path) do |f| %>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Continue" %>
+    </div>
+  <% end %>
+</div>

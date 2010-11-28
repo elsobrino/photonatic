@@ -1,14 +1,29 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Photonatic</title>
-  <%= stylesheet_link_tag :all %>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <title><%= title %></title>
+  <%= render 'layouts/stylesheets' %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
 <body>
 
-<%= yield %>
+<div class="page_margins">
+  <div class="page">
+    <div id="header" role="banner">
+      <div id="logo"><h1><span class="green">photo</span><span class="blue">Natic</span></h1></div>
+      <%= render 'layouts/navigation' %>
+    </div>
+    <!-- begin: content area #main -->
+    <div id="main">
+      <%= yield %>
+    </div>
+    <!-- end: #main -->
+    <%= render 'layouts/footer' %>
+  </div>
+</div>
 
 </body>
 </html>

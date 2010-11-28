@@ -1,0 +1,76 @@
+
+body {
+	background-color: #333;
+	font-family: Arial, Verdana, sans-serif;
+}
+
+.page_margins {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.page {
+	background-color: #fff;
+}
+
+#header {
+	overflow: hidden;
+	padding: 30px;
+}
+
+#logo {
+	float: left;
+}
+
+#nav {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+#main {
+}
+
+#footer {
+	height: 20px;
+	text-align: center;
+	font-size: 0.8em;
+}
+
+/* round */
+.round {
+	-moz-border-radius:    10px;
+	-webkit-border-radius: 10px;
+	border-radius:         10px;
+}
+
+/* centered */
+.centered {
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 100px;
+}
+
+/* blue */
+.blue {
+	color: #33a8e5;
+}
+
+/* green */
+.green {
+	color: #75e730;
+}
+
+/* login */
+#login {
+	width: 250px;
+	background: #333;
+	padding: 25px;
+	color: #aaa;
+}
+
+#login div {
+	padding: 5px;
+	font-size: 0.8em;
+}
