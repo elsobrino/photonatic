@@ -44,14 +44,6 @@ body {
 	border-radius:         10px;
 }
 
-/* centered */
-.centered {
-	margin-top: 100px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 100px;
-}
-
 /* blue */
 .blue {
 	color: #33a8e5;
@@ -63,15 +55,45 @@ body {
 }
 
 /* login */
-#login {
-	width: 350px;
+.centered {
+    width: 450px;
 	background: #333;
 	padding: 25px;
 	color: #aaa;
-	text-align: center;
+	margin-top: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 100px;
 }
 
-#login div {
-	padding: 5px;
-	font-size: 0.8em;
+.centered div {
+  padding: 5px;
+}
+
+.centered label {
+    font-weight: bold;
+}
+
+.centered {
+  font-size: 0.7em;
+}
+
+.centered div.actions {
+  text-align: center;
+}
+
+.centered 
+  a, 
+  a:focus,
+  a:hover,
+  a:active  { color:#ff0000; text-decoration:underline; outline: 0 none; }
+
+/* right */
+.right {
+  float: right;
+}
+
+/* left */
+.left {
+  float: left;
 }

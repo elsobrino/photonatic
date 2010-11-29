@@ -1,10 +1,15 @@
 Photonatic::Application.routes.draw do
 
+  get "users/new"
+
   root :to => "pages#home"
 
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :users
 
-  match '/login', :to => 'sessions#new'
+  match '/register', :to => 'users#new'
+
+  match '/login',    :to => 'sessions#new'
 
 
   # The priority is based upon order of creation:

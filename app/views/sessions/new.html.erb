@@ -1,5 +1,7 @@
-<div id="login" class="round centered">
-  <h3 class="green">Login</h3><h5 class="blue">to your account</h5><br />
+<div class="round centered">
+  <h1 class="green left">Login</h1>
+  <span class="right">Don't have a <b><span class="green">photo</span><span class="blue">Natic</span></b> account? <%= link_to "create one!", register_path %></span>
+  <div class="clearfix"></div>
   <%= form_for(:session, :url => sessions_path) do |f| %>
     <div class="field">
       <%= f.label :email %><br />
@@ -7,7 +9,7 @@
     </div>
     <div class="field">
       <%= f.label :password %><br />
-      <%= f.password_field :password %>
+      <%= f.password_field :password %><span class="right">Forgot your password? <%= link_to "retrieve it!", root_path %></span>
     </div>
     <div class="actions">
       <%= f.submit "Continue" %>
