@@ -67,6 +67,31 @@
 
   .hlist ul li a:focus,
   .hlist ul li a:hover,
-  .hlist ul li a:active  { color:#ff0000; text-decoration:none; outline: 0 none; }
+  .hlist ul li a:active  { color:#ff0000; text-decoration:none; outline: 0 none; background: url(/images/striped_background.png); }
+
+	.hlist ul li.first,
+	.hlist ul li.first a:hover,
+	.hlist ul li.first a:focus,
+	.hlist ul li.first a:active {
+			-moz-border-radius-topleft:    10px;
+			-moz-border-radius-bottomleft:    10px;
+			-webkit-border-radius-topleft: 10px;
+			-webkit-border-radius-bottomleft: 10px;
+			border-radius-topleft:         10px;
+			border-radius-bottomleft:         10px;
+
+	}
+	
+	.hlist ul li.last,
+	.hlist ul li.last a:hover,
+	.hlist ul li.last a:focus,
+	.hlist ul li.last a:active {
+			-moz-border-radius-topright:    10px;
+			-moz-border-radius-bottomright:    10px;
+			-webkit-border-radius-topright: 10px;
+			-webkit-border-radius-bottomright: 10px;
+			border-radius-topright:         10px;
+			border-radius-bottomright:         10px;
+	}
 
 }
