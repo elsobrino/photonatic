@@ -11,7 +11,122 @@ describe User do
       :password_confirmation => "foobar"
     }
   end
+  
+  it "should create a new user with valid data" do
+    User.create!(@attr)
+  end
+  
+  # Testing Forenames
+  
+  it "should require a forename" do
+    no_forename_user = User.new(@attr.merge(:forename => ""))
+    no_forename_user.should_not be_valid
+  end
+  
+  it "should require an alphabetical forename" do
+    non_alphabetical_forenames = %w[John! Mike% Nick123 K.]
+    non_alphabetical_forenames.each do |forename|
+      invalid_user = User.new(@attr.merge(:forename => forename))
+      invalid_user.should_not be_valid
+    end
+  end
+  
+  it "should pass with valid forename" do
+    valid_forenames = %w[Steven Hans Robert Theo]
+    valid_forenames.each do |forename|
+      valid_user = User.new(@attr.merge(:forename => forename))
+      valid_user.should be_valid
+    end
+  end
+  
+  it "should reject too long forenames" do
+    long_forename = "a"*51
+    to_long_forename = User.new(@attr.merge(:forename => long_forename))
+    to_long_forename.should_not be_valid
+  end
+  
+  # Testing Lastnames
+  
+  it "should require a lastname" do
+    no_lastname_user = User.new(@attr.merge(:lastname => ""))
+    no_lastname_user.should_not be_valid
+  end
+  
+  it "should require an alphabetical lastname" do
+    non_alphabetical_lastnames = %w[Meyer! Sch$ulz Schmidt1324 M.]
+    non_alphabetical_lastnames.each do |lastname|
+      invalid_user = User.new(@attr.merge(:lastname => lastname))
+      invalid_user.should_not be_valid
+    end
+  end
+  
+  it "should pass with valid lastnames" do
+    valid_lastnames = %w[Meyer Schulz Mueller Schmidt]
+    valid_lastnames.each do |lastname|
+      valid_user = User.new(@attr.merge(:lastname => lastname))
+      valid_user.should be_valid
+    end
+  end
+  
+  it "should reject too long lastnames" do
+    long_lastname = "a"*51
+    to_long_lastname = User.new(@attr.merge(:lastname => long_lastname))
+    to_long_lastname.should_not be_valid
+  end
+  
+  # Testing email addresses
+    
+  it "should require a email address" do
+    no_email_user = User.new(@attr.merge(:email => ""))
+    no_email_user.should_not be_valid
+  end
+  
+  it "should accept valid email addresses" do
+    addresses = %w[user@foo.com THE_USER@foo.bar.org first.last@foo.jp]
+    addresses.each do |address|
+      valid_email_user = User.new(@attr.merge(:email => address))
+      valid_email_user.should be_valid
+    end
+  end
 
+  it "should reject invalid email address" do
+    addresses = %w[user@foo,com user_at_foo.org example_user@foo.]
+    addresses.each do |address|
+      invalid_email_user = User.new(@attr.merge(:email => address))
+      invalid_email_user.should_not be_valid
+    end
+  end
+  
+  it "should reject too long email address" do
+    long_email = "#{'a'*255}@ab.de"
+    to_long_email = User.new(@attr.merge(:email => long_email))
+    to_long_email.should_not be_valid
+  end
+  
+  # Testing password validation
+  
+  it "should reject password/confirmation mismatch" do
+    User.new(@attr.merge(:password => 'foobaz')).
+              should_not be_valid
+  end
+  
+  it "should reject passwords shorter than 6 chars" do
+    User.new(@attr.merge(:password => 'abcde', 
+                         :password_confirmation => 'abcde')).
+              should_not be_valid
+   end
+   
+   it "should reject passwords longer than 40 chars" do
+     long_password = 'a'*41
+     User.new(@attr.merge(:password => long_password,
+                          :password_confirmation => long_password)).
+               should_not be_valid
+    end
+    
+    it "should reject empty passwords" do
+      User.new(@attr.merge(:password => "", :password_confirmation => "")).
+               should_not be_valid
+    end
 end
 
 

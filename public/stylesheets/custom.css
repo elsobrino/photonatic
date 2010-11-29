@@ -64,10 +64,11 @@ body {
 
 /* login */
 #login {
-	width: 250px;
+	width: 350px;
 	background: #333;
 	padding: 25px;
 	color: #aaa;
+	text-align: center;
 }
 
 #login div {

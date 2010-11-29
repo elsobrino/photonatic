@@ -1,4 +1,22 @@
 class User < ActiveRecord::Base
+  attr_accessor :password
+  attr_accessible :forename, :lastname, :email, :password, :password_confirmation
+  
+  alpha_regex = /^[A-Z][a-z]+$/
+  email_regex = /^[\w+\-.]+@[a-z\d\-.]+\.[a-z]+$/i
+  
+  validates :forename, :presence => true,
+                       :format => { :with => alpha_regex },
+                       :length => { :maximum => 50 }
+  validates :lastname, :presence => true,
+                       :format => { :with => alpha_regex },
+                       :length => { :maximum => 50 }
+  validates :email,    :presence => true,
+                       :format => { :with => email_regex },
+                       :length => { :within => 5..255 }
+  validates :password, :confirmation => true,
+                       :presence => true,
+                       :length => { :within => 6..40 }
   
 end
 # == Schema Information
