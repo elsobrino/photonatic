@@ -6,6 +6,7 @@ describe User do
     @attr = {
       :forename => "Test",
       :lastname => "User",
+      :username => "Hans-Dieter",
       :email => "test@example.com",
       :password => "foobar",
       :password_confirmation => "foobar"
@@ -16,11 +17,11 @@ describe User do
     User.create!(@attr)
   end
   
-  # Testing Forenames
+  describe "Testing forename validation" do
   
-  it "should require a forename" do
+  it "should not require a forename" do
     no_forename_user = User.new(@attr.merge(:forename => ""))
-    no_forename_user.should_not be_valid
+    no_forename_user.should be_valid
   end
   
   it "should require an alphabetical forename" do
@@ -44,12 +45,13 @@ describe User do
     to_long_forename = User.new(@attr.merge(:forename => long_forename))
     to_long_forename.should_not be_valid
   end
+  end
   
-  # Testing Lastnames
+  describe "Testing lastname validation" do
   
-  it "should require a lastname" do
+  it "should not require a lastname" do
     no_lastname_user = User.new(@attr.merge(:lastname => ""))
-    no_lastname_user.should_not be_valid
+    no_lastname_user.should be_valid
   end
   
   it "should require an alphabetical lastname" do
@@ -73,8 +75,22 @@ describe User do
     to_long_lastname = User.new(@attr.merge(:lastname => long_lastname))
     to_long_lastname.should_not be_valid
   end
-  
-  # Testing email addresses
+  end
+
+  describe "Testing username validation" do
+
+    it "should require a username" do
+      User.new(@attr.merge(:username => "")).should_not be_valid
+    end
+
+    it "should not be longer than 50 chars" do
+      long_name = "a"*51
+      User.new(@attr.merge(:username => long_name)).should_not be_valid
+    end
+
+  end
+
+  describe "Testing email address validation" do
     
   it "should require a email address" do
     no_email_user = User.new(@attr.merge(:email => ""))
@@ -102,8 +118,9 @@ describe User do
     to_long_email = User.new(@attr.merge(:email => long_email))
     to_long_email.should_not be_valid
   end
-  
-  # Testing password validation
+  end
+
+  describe "Testing password validation" do
   
   it "should reject password/confirmation mismatch" do
     User.new(@attr.merge(:password => 'foobaz')).
@@ -127,6 +144,7 @@ describe User do
       User.new(@attr.merge(:password => "", :password_confirmation => "")).
                should_not be_valid
     end
+  end
 end
 
 
