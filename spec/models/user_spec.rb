@@ -88,6 +88,11 @@ describe User do
       User.new(@attr.merge(:username => long_name)).should_not be_valid
     end
 
+    it "should reject duplicate usernames" do
+      User.create!(@attr)
+      User.new(@attr.merge(:email => "test2@example.com")).should_not be_valid
+    end
+
   end
 
   describe "Testing email address validation" do
@@ -117,6 +122,11 @@ describe User do
     long_email = "#{'a'*255}@ab.de"
     to_long_email = User.new(@attr.merge(:email => long_email))
     to_long_email.should_not be_valid
+  end
+
+  it "should reject duplicate email addresses" do
+    User.create!(@attr)
+    User.new(@attr.merge(:username => "Hans")).should_not be_valid
   end
   end
 
@@ -148,6 +158,7 @@ describe User do
 end
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -160,5 +171,6 @@ end
 #  salt               :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
+#  username           :string(255)
 #
 

@@ -3,6 +3,7 @@
   <span class="right">Already have a <b><span class="green">photo</span><span class="blue">Natic</span></b> account? <%= link_to "log in!", login_path %></span>
   <div class="clearfix"></div>
   <%= form_for @user do |f| %>
+    <%= render 'shared/error_messages', :object => f.object %>
     <div class="field">
       <%= f.label :email %><br />
       <%= f.text_field :email %>
