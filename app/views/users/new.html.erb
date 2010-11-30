@@ -5,20 +5,20 @@
   <%= form_for @user do |f| %>
     <%= render 'shared/error_messages', :object => f.object %>
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
+      <div class="label"><%= f.label :email %></div>
+      <div class="input"><%= f.text_field :email %></div>
     </div>
     <div class="field">
-      <%= f.label :username %><br />
-      <%= f.text_field :username %>
+      <div class="label"><%= f.label :username %></div>
+      <div class="input"><%= f.text_field :username %></div>
     </div>
     <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password %>
+      <div class="label"><%= f.label :password %></div>
+      <div class="input"><%= f.password_field :password %></div>
     </div>
     <div class="field">
-      <%= f.label :password_confirmation, "Confirmation" %><br />
-      <%= f.password_field :password_confirmation %>
+      <div class="label"><%= f.label :password_confirmation, "Confirmation" %></div>
+      <div class="input"><%= f.password_field :password_confirmation %></div>
     </div>
     <div class="actions">
       <%= f.submit "Register" %>

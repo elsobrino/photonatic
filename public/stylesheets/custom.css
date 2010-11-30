@@ -68,10 +68,9 @@ a:active  { color:#ff0000; text-decoration:underline; outline: 0 none; }
 	background: #333;
 	padding: 25px;
 	color: #aaa;
-	margin-top: 100px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 100px;
+	margin-bottom: 50px;
 }
 
 .centered div.field {
@@ -108,15 +107,13 @@ a:active  { color:#ff0000; text-decoration:underline; outline: 0 none; }
 
 /* rails stuff */
 /* Error stuff */
-.field_with_errors {
-  background-color: red;
+
+div.input .field_with_errors {
+  padding: 2px;
+  background-color: #ff0000;
   display: table;
 }
 
-.field_with_errors label {
-  color: #aaa;
-  background-color: #333;
-}
 
 #error_explanation {
   margin-top: 10px;
@@ -124,7 +121,6 @@ a:active  { color:#ff0000; text-decoration:underline; outline: 0 none; }
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
 }
 
 #error_explanation h2 {
@@ -148,3 +144,4 @@ a:active  { color:#ff0000; text-decoration:underline; outline: 0 none; }
   list-style: square;
 }
 
+*/
