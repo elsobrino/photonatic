@@ -121,6 +121,7 @@ div.input .field_with_errors {
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
+	background-color: #444;
 }
 
 #error_explanation h2 {
